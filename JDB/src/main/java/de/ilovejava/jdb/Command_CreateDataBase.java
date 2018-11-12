@@ -38,7 +38,13 @@ public class Command_CreateDataBase {
 			}else if(s.equalsIgnoreCase("double")) {
 				QuerySection++;
 				Values.put(QuerySection, "DOUBLE");
-			}else {System.out.println("Write: Long,Int,String,Double");}
+			}else if(s.equalsIgnoreCase("boolean")){
+				QuerySection++;
+				Values.put(QuerySection, "BOOLEAN");
+			}else if(s.equalsIgnoreCase("List")) {
+				QuerySection++;
+				Values.put(QuerySection, "LIST");
+			}else {System.out.println("Write: Long,Int,String,Double,Boolean,list");}
 		}else if(i == 2) {
 			QueryStringSection ++;
 			StringValues.put(QueryStringSection, s);
