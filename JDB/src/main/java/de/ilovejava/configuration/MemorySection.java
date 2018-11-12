@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * A type of {@link ConfigurationSection} that is stored in memory.
- */
+
 public class MemorySection implements ConfigurationSection {
     protected final Map<String, Object> map = new LinkedHashMap<String, Object>();
     private final Configuration root;
@@ -19,16 +17,6 @@ public class MemorySection implements ConfigurationSection {
     private final String path;
     private final String fullPath;
 
-    /**
-     * Creates an empty MemorySection for use as a root {@link Configuration}
-     * section.
-     * <p>
-     * Note that calling this without being yourself a {@link Configuration}
-     * will throw an exception!
-     *
-     * @throws IllegalStateException Thrown if this is not a {@link
-     *     Configuration} root.
-     */
     protected MemorySection() {
         if (!(this instanceof Configuration)) {
             throw new IllegalStateException("Cannot construct a root MemorySection when not a Configuration");
@@ -40,15 +28,7 @@ public class MemorySection implements ConfigurationSection {
         this.root = (Configuration) this;
     }
 
-    /**
-     * Creates an empty MemorySection with the specified parent and path.
-     *
-     * @param parent Parent section that contains this own section.
-     * @param path Path that you may access this section from via the root
-     *     {@link Configuration}.
-     * @throws IllegalArgumentException Thrown is parent or path is null, or
-     *     if parent contains no root Configuration.
-     */
+   
     protected MemorySection(ConfigurationSection parent, String path) {
 
         this.path = path;
@@ -158,8 +138,6 @@ public class MemorySection implements ConfigurationSection {
         }
 
         final char separator = root.options().pathSeparator();
-        // i1 is the leading (higher) index
-        // i2 is the trailing (lower) index
         int i1 = -1, i2;
         ConfigurationSection section = this;
         while ((i1 = path.indexOf(separator, i2 = i1 + 1)) != -1) {
@@ -200,8 +178,6 @@ public class MemorySection implements ConfigurationSection {
         }
 
         final char separator = root.options().pathSeparator();
-        // i1 is the leading (higher) index
-        // i2 is the trailing (lower) index
         int i1 = -1, i2;
         ConfigurationSection section = this;
         while ((i1 = path.indexOf(separator, i2 = i1 + 1)) != -1) {
@@ -226,8 +202,7 @@ public class MemorySection implements ConfigurationSection {
         }
 
         final char separator = root.options().pathSeparator();
-        // i1 is the leading (higher) index
-        // i2 is the trailing (lower) index
+       
         int i1 = -1, i2;
         ConfigurationSection section = this;
         while ((i1 = path.indexOf(separator, i2 = i1 + 1)) != -1) {
@@ -263,7 +238,6 @@ public class MemorySection implements ConfigurationSection {
         return section;
     }
 
-    // Primitives
     public String getString(String path) {
         Object def = getDefault(path);
         return getString(path, def != null ? def.toString() : null);
@@ -675,33 +649,10 @@ public class MemorySection implements ConfigurationSection {
         }
     }
 
-    /**
-     * Creates a full path to the given {@link ConfigurationSection} from its
-     * root {@link Configuration}.
-     * <p>
-     * You may use this method for any given {@link ConfigurationSection}, not
-     * only {@link MemorySection}.
-     *
-     * @param section Section to create a path for.
-     * @param key Name of the specified section.
-     * @return Full path of the section from its root.
-     */
     public static String createPath(ConfigurationSection section, String key) {
         return createPath(section, key, (section == null) ? null : section.getRoot());
     }
 
-    /**
-     * Creates a relative path to the given {@link ConfigurationSection} from
-     * the given relative section.
-     * <p>
-     * You may use this method for any given {@link ConfigurationSection}, not
-     * only {@link MemorySection}.
-     *
-     * @param section Section to create a path for.
-     * @param key Name of the specified section.
-     * @param relativeTo Section to create the path relative to.
-     * @return Full path of the section from its root.
-     */
     public static String createPath(ConfigurationSection section, String key, ConfigurationSection relativeTo) {
       
         Configuration root = section.getRoot();
@@ -746,7 +697,6 @@ public class MemorySection implements ConfigurationSection {
     }
 
 	public boolean isColor(String path) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

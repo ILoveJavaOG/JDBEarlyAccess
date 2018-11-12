@@ -16,10 +16,6 @@ import de.ilovejava.configuration.Configuration;
 import de.ilovejava.configuration.ConfigurationSection;
 import de.ilovejava.configuration.InvalidConfigurationException;
 
-/**
- * An implementation of {@link Configuration} which saves all files in Yaml.
- * Note that this implementation is not synchronized.
- */
 public class YamlConfiguration extends FileConfiguration {
     protected static final String COMMENT_PREFIX = "# ";
     protected static final String BLANK_CONFIG = "{}\n";
@@ -156,19 +152,6 @@ public class YamlConfiguration extends FileConfiguration {
         return (YamlConfigurationOptions) options;
     }
 
-    /**
-     * Creates a new {@link YamlConfiguration}, loading from the given file.
-     * <p>
-     * Any errors loading the Configuration will be logged and then ignored.
-     * If the specified input is not a valid config, a blank config will be
-     * returned.
-     * <p>
-     * The encoding used may follow the system dependent default.
-     *
-     * @param file Input file
-     * @return Resulting configuration
-     * @throws IllegalArgumentException Thrown if file is null
-     */
     public static YamlConfiguration loadConfiguration(File file) {
 
         YamlConfiguration config = new YamlConfiguration();
@@ -185,20 +168,6 @@ public class YamlConfiguration extends FileConfiguration {
         return config;
     }
 
-    /**
-     * Creates a new {@link YamlConfiguration}, loading from the given stream.
-     * <p>
-     * Any errors loading the Configuration will be logged and then ignored.
-     * If the specified input is not a valid config, a blank config will be
-     * returned.
-     *
-     * @param stream Input stream
-     * @return Resulting configuration
-     * @throws IllegalArgumentException Thrown if stream is null
-     * @deprecated does not properly consider encoding
-     * @see #load(InputStream)
-     * @see #loadConfiguration(Reader)
-     */
     @Deprecated
     public static YamlConfiguration loadConfiguration(InputStream stream) {
         YamlConfiguration config = new YamlConfiguration();
@@ -213,19 +182,7 @@ public class YamlConfiguration extends FileConfiguration {
 
         return config;
     }
-
-
-    /**
-     * Creates a new {@link YamlConfiguration}, loading from the given reader.
-     * <p>
-     * Any errors loading the Configuration will be logged and then ignored.
-     * If the specified input is not a valid config, a blank config will be
-     * returned.
-     *
-     * @param reader input
-     * @return resulting configuration
-     * @throws IllegalArgumentException Thrown if stream is null
-     */
+    
     public static YamlConfiguration loadConfiguration(Reader reader) {
 
         YamlConfiguration config = new YamlConfiguration();

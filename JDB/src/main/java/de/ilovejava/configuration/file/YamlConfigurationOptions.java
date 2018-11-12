@@ -1,10 +1,6 @@
 package de.ilovejava.configuration.file;
 
 
-/**
- * Various settings for controlling the input and output of a {@link
- * YamlConfiguration}
- */
 public class YamlConfigurationOptions extends FileConfigurationOptions {
     private int indent = 2;
 
@@ -41,25 +37,10 @@ public class YamlConfigurationOptions extends FileConfigurationOptions {
         return this;
     }
 
-    /**
-     * Gets how much spaces should be used to indent each line.
-     * <p>
-     * The minimum value this may be is 2, and the maximum is 9.
-     *
-     * @return How much to indent by
-     */
     public int indent() {
         return indent;
     }
 
-    /**
-     * Sets how much spaces should be used to indent each line.
-     * <p>
-     * The minimum value this may be is 2, and the maximum is 9.
-     *
-     * @param value New indent
-     * @return This object, for chaining
-     */
     public YamlConfigurationOptions indent(int value) {
 
         this.indent = value;

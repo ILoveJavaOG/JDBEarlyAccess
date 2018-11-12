@@ -1,8 +1,5 @@
 package de.ilovejava.configuration;
 
-/**
- * Utils for casting number types to other number types
- */
 public final class NumberConversions {
     private NumberConversions() {}
 

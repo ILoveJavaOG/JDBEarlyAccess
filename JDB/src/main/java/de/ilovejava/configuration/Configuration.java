@@ -2,9 +2,6 @@ package de.ilovejava.configuration;
 
 import java.util.Map;
 
-/**
- * Represents a source of configurable options and settings
- */
 public interface Configuration extends ConfigurationSection {
    
     public void addDefault(String path, Object value);
